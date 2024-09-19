@@ -49,7 +49,7 @@ def update_task_list():
     cursor.execute('SELECT id, task, completed FROM tasks')
     tasks = cursor.fetchall()
     for task in tasks:
-        status = "Done" if task[2] else "Pending"
+        status = "Feito" if task[2] else "Pendente"
         listbox_tasks.insert(tk.END, (task[0], f"{task[1]} - {status}"))
 
 root = tk.Tk()
@@ -58,13 +58,13 @@ root.title("To-Do List")
 entry_task = tk.Entry(root, width=30)
 entry_task.pack(pady=10)
 
-button_add_task = tk.Button(root, text="Add Task", width=15, command=add_task)
+button_add_task = tk.Button(root, text="Adicionar Tarefa", width=15, command=add_task)
 button_add_task.pack(pady=5)
 
-button_delete_task = tk.Button(root, text="Delete Task", width=15, command=delete_task)
+button_delete_task = tk.Button(root, text="Deletar Tarefa", width=15, command=delete_task)
 button_delete_task.pack(pady=5)
 
-button_complete_task = tk.Button(root, text="Complete Task", width=15, command=complete_task)
+button_complete_task = tk.Button(root, text="Completar Tarefa", width=15, command=complete_task)
 button_complete_task.pack(pady=5)
 
 listbox_tasks = tk.Listbox(root, width=50, height=10)
